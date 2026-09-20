@@ -1,0 +1,142 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-ring: var(--sidebar-ring);
+  --font-sans: "DM Sans", ui-sans-serif, system-ui, sans-serif;
+  --font-display: "Fraunces", Georgia, serif;
+}
+
+:root {
+  --primary: oklch(0.29 0.065 157);
+  --primary-foreground: oklch(0.98 0.015 95);
+  --sidebar-primary: oklch(0.29 0.065 157);
+  --sidebar-primary-foreground: oklch(0.98 0.015 95);
+  --chart-1: oklch(0.72 0.14 78);
+  --chart-2: oklch(0.52 0.10 157);
+  --chart-3: oklch(0.60 0.10 190);
+  --chart-4: oklch(0.62 0.15 43);
+  --chart-5: oklch(0.55 0.08 95);
+  --radius: 0.85rem;
+  --background: oklch(0.975 0.007 100);
+  --foreground: oklch(0.29 0.065 157);
+  --card: oklch(1 0.002 100);
+  --card-foreground: oklch(0.29 0.065 157);
+  --popover: oklch(1 0.002 100);
+  --popover-foreground: oklch(0.29 0.065 157);
+  --secondary: oklch(0.95 0.012 100);
+  --secondary-foreground: oklch(0.42 0.045 157);
+  --muted: oklch(0.95 0.012 100);
+  --muted-foreground: oklch(0.53 0.025 145);
+  --accent: oklch(0.95 0.012 100);
+  --accent-foreground: oklch(0.29 0.065 157);
+  --destructive: oklch(0.6 0.19 28);
+  --destructive-foreground: oklch(0.98 0.01 100);
+  --border: oklch(0.89 0.018 100);
+  --input: oklch(0.89 0.018 100);
+  --ring: oklch(0.64 0.12 75);
+  --sidebar: oklch(0.98 0.007 100);
+  --sidebar-foreground: oklch(0.29 0.065 157);
+  --sidebar-accent: oklch(0.95 0.012 100);
+  --sidebar-accent-foreground: oklch(0.29 0.065 157);
+  --sidebar-border: oklch(0.89 0.018 100);
+  --sidebar-ring: oklch(0.64 0.12 75);
+}
+
+.dark {
+  --background: oklch(0.17 0.035 157);
+  --foreground: oklch(0.95 0.012 100);
+  --card: oklch(0.22 0.04 157);
+  --card-foreground: oklch(0.95 0.012 100);
+  --popover: oklch(0.22 0.04 157);
+  --popover-foreground: oklch(0.95 0.012 100);
+  --secondary: oklch(0.26 0.045 157);
+  --secondary-foreground: oklch(0.88 0.015 100);
+  --muted: oklch(0.26 0.045 157);
+  --muted-foreground: oklch(0.74 0.025 100);
+  --accent: oklch(0.26 0.045 157);
+  --accent-foreground: oklch(0.95 0.012 100);
+  --border: oklch(1 0 0 / 12%);
+  --input: oklch(1 0 0 / 15%);
+  --ring: oklch(0.72 0.14 78);
+}
+
+@layer base {
+  * { @apply border-border outline-ring/50; }
+  html { scroll-behavior: smooth; }
+  body { @apply bg-background text-foreground; font-family: "DM Sans", ui-sans-serif, system-ui, sans-serif; }
+  button:not(:disabled), [role="button"]:not([aria-disabled="true"]), [type="button"]:not(:disabled), [type="submit"]:not(:disabled), [type="reset"]:not(:disabled), a[href], select:not(:disabled), input[type="checkbox"]:not(:disabled), input[type="radio"]:not(:disabled) { @apply cursor-pointer; }
+  ::selection { background: #e7be68; color: #163f34; }
+}
+
+@layer components {
+  .container { width: 100%; margin-inline: auto; padding-inline: 1rem; }
+  .flex { min-height: 0; min-width: 0; }
+  .font-display { font-family: "Fraunces", Georgia, serif; }
+  .section-label { @apply text-[10px] font-bold uppercase tracking-[0.18em]; color: #748077; }
+  .field-label { @apply mb-2 flex items-center gap-2 text-xs font-bold text-[#506059]; }
+  .field-input { @apply h-12 w-full rounded-xl border border-[#dfe4d8] bg-[#fbfcf8] px-4 text-sm font-semibold text-[#264c3e] outline-none transition duration-150 placeholder:text-[#a5ada6] focus:border-[#87a678] focus:ring-4 focus:ring-[#dfead8]; }
+  .step-card { @apply rounded-[26px] border border-[#dfe4d8] bg-[#fffdf8] p-6 transition duration-200 hover:-translate-y-1 hover:shadow-[0_15px_40px_rgba(46,67,53,.07)]; }
+  .step-number { @apply text-[11px] font-bold tracking-[0.16em] text-[#aab4aa]; }
+  .report-card { @apply rounded-[28px] border border-[#dfdfd5] bg-[#fffdf8] p-6 sm:p-8; }
+  .icon-tile { @apply flex h-11 w-11 items-center justify-center rounded-2xl; }
+  .icon-tile.green { @apply bg-[#e4f1df] text-[#2f6b51]; }
+  .icon-tile.orange { @apply bg-[#fff0d6] text-[#b7621c]; }
+}
+
+.hero-orbit { animation: float-orbit 8s ease-in-out infinite; }
+
+@keyframes float-orbit {
+  0%, 100% { transform: translate3d(0, 0, 0); }
+  50% { transform: translate3d(0, 10px, 0); }
+}
+
+@media (min-width: 640px) {
+  .container { padding-inline: 1.5rem; }
+}
+
+@media (min-width: 1024px) {
+  .container { max-width: 1280px; padding-inline: 2rem; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after { animation-duration: 0.01ms !important; animation-iteration-count: 1 !important; transition-duration: 0.01ms !important; }
+}
